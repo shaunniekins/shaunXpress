@@ -34,7 +34,7 @@
 		/>
 
 		<div
-			class={`flex flex-col max-w-sm px-6 py-10 shadow z-12 h-fit rounded-2xl w-[400px] drop-shadow-lg z-10 ${
+			class={`flex flex-col max-w-sm px-6 py-10 shadow z-12 h-fit rounded-2xl sm:w-[400px] drop-shadow-lg z-10 ${
 				theme === 'dark' ? 'bg-[#242526] text-white' : 'bg-[#FFFFFF] text-black'
 			}`}
 		>
@@ -56,7 +56,7 @@
 						autocomplete="email"
 						required
 						placeholder="Email address"
-						class={`mb-3 rounded-lg p-1.5 sm:text-sm ${
+						class={`mb-3 rounded-lg p-1.5 text-sm ${
 							theme === 'dark'
 								? 'bg-[#3A3B3C] text-white hover:bg-gray-500'
 								: 'bg-[#F0F2F5] text-black hover:bg-gray-200'
@@ -69,7 +69,7 @@
 						autocomplete="current-password"
 						required
 						placeholder="Password"
-						class={`mb-3 rounded-lg p-1.5 sm:text-sm  ${
+						class={`mb-5 sm:mb-3 rounded-lg p-1.5 text-sm  ${
 							theme === 'dark'
 								? 'bg-[#3A3B3C] text-white hover:bg-gray-500'
 								: 'bg-[#F0F2F5] text-black hover:bg-gray-200'
