@@ -40,34 +40,36 @@
 	<div class="select-none">
 		{#each posts as post}
 			<div
-				class={`flex items-start space-x-3 my-4 px-3 py-5 rounded-lg 
+				class={`flex flex-col my-4 px-3 py-5 rounded-lg 
 			${theme === 'dark' ? 'bg-[#242526] text-white' : 'bg-[#FFFFFF] text-black'}`}
 			>
-				<img
-					src={post.author === 1
-						? 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
-						: ''}
-					alt="Picture of Author"
-					class="w-10 h-10 rounded-full"
-				/>
-				<div class="flex-1 space-y-2">
-					<div class="flex justify-between">
-						<div class="flex flex-col items-start">
-							<!-- <div> -->
-							<h2 class="font-bold text-sm">
-								{post.author === 1 ? 'Shaun' : `Author ${post.author}`}
-							</h2>
-							<!-- <p class="text-xs text-gray-500">|</p> -->
-							<p class="text-xs text-gray-500">{post.date}</p>
-							<!-- </div> -->
-						</div>
-						<Icon
-							name="copy-outline"
-							width="15"
-							class="cursor-pointer outline-none"
-							on:click={() => copyPostToClipboard(post.post)}
+				<div class="flex flex-1 justify-between items-center">
+					<div class="flex space-x-3 items-center mb-2">
+						<img
+							src={post.author === 1
+								? 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+								: ''}
+							alt="Picture of Author"
+							class="w-10 h-10 rounded-full"
 						/>
+						<div class="flex justify-between">
+							<div class="flex flex-col items-start">
+								<h2 class="font-bold text-sm">
+									{post.author === 1 ? 'Shaun' : `Author ${post.author}`}
+								</h2>
+								<p class="text-xs text-gray-500">{post.date}</p>
+							</div>
+						</div>
 					</div>
+
+					<Icon
+						name="copy-outline"
+						width="15"
+						class="cursor-pointer outline-none"
+						on:click={() => copyPostToClipboard(post.post)}
+					/>
+				</div>
+				<div class="space-y-2">
 					{#if post.photo}
 						<img src={post.photo} alt="Post Photo" class="w-full h-1/2 my-2 rounded-xl" />
 					{/if}

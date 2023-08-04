@@ -37,7 +37,9 @@ ${theme === 'dark' ? 'text-white' : 'text-black'}
 `}
 >
 	<Navbar {theme} on:theme-changed={toggleTheme} />
-	<div class="px-5 py-28 sm:mx-[26rem] xl:mx-[26rem] 2xl:mx-[34rem] h-[calc(100vh-5rem)]">
+	<div
+		class="px-5 py-28 mx-[-0.30rem] sm:mx-[5rem] xl:mx-[26rem] 2xl:mx-[34rem] h-[calc(100vh-5rem)]"
+	>
 		<!-- <main class="p-6"> -->
 		<h1 class="text-2xl font-bold mb-4">About</h1>
 		<p class="text-gray-700 mb-6">

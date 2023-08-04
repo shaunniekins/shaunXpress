@@ -34,7 +34,7 @@
 
 <div class={` ${theme === 'dark' ? 'bg-[#18191A] text-white' : 'bg-[#F0F2F5] text-black'}`}>
 	<Navbar {theme} on:theme-changed={toggleTheme} />
-	<div class="px-5 sm:mx-[26rem] xl:mx-[26rem] 2xl:mx-[34rem] h-fit">
+	<div class="px-5 mx-[-0.30rem] sm:mx-[5rem] xl:mx-[26rem] 2xl:mx-[34rem] h-fit">
 		<Publish {theme} />
 		<Content {theme} />
 	</div>
