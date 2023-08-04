@@ -22,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"class-variance-authority": "^0.7.0",
 		"svelte-ionicons": "^0.6.4"
 	}
 }

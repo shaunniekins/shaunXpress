@@ -2,6 +2,7 @@
 	import { Icon } from 'svelte-ionicons';
 	import { onMount } from 'svelte';
 	import postData from '../../../../data/data.json';
+	export let theme; // Add theme prop
 
 	let posts = [];
 	let visiblePosts = 10; // Number of posts to show initially
@@ -30,27 +31,40 @@
 
 {#if posts.length === 0}
 	<div
-		class="flex flex-col my-5 px-5 mx-[34rem] h-[calc(100vh-3rem)] justify-center items-center text-2xl select-none"
+		class="flex flex-col my-5 px-5 h-[calc(100vh-3rem)] justify-center items-center text-2xl select-none"
 	>
 		<Icon name="sad-outline" width="50" height="50" />
 		<p>No posts.</p>
 	</div>
 {:else}
-	<div class="my-5 py-3 px-5 sm:mx-[26rem] xl:mx-[26rem] 2xl:mx-[34rem] h-fit select-none">
+	<div class="select-none">
 		{#each posts as post}
-			<div class="flex items-start space-x-3 mb-6">
-				<img src={post.author_picture} alt="Author Picture" class="w-12 h-12 rounded-full" />
-				<div class="flex-1">
+			<div
+				class={`flex items-start space-x-3 my-4 px-3 py-5 rounded-lg 
+			${theme === 'dark' ? 'bg-[#242526] text-white' : 'bg-[#FFFFFF] text-black'}`}
+			>
+				<img
+					src={post.author === 1
+						? 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+						: ''}
+					alt="Picture of Author"
+					class="w-10 h-10 rounded-full"
+				/>
+				<div class="flex-1 space-y-2">
 					<div class="flex justify-between">
-						<div class="flex items-center gap-x-2">
-							<h2 class="font-bold">{post.author}</h2>
-							<p class="text-sm text-gray-500">|</p>
-							<p class="text-sm text-gray-500">{post.date}</p>
+						<div class="flex flex-col items-start">
+							<!-- <div> -->
+							<h2 class="font-bold text-sm">
+								{post.author === 1 ? 'Shaun' : `Author ${post.author}`}
+							</h2>
+							<!-- <p class="text-xs text-gray-500">|</p> -->
+							<p class="text-xs text-gray-500">{post.date}</p>
+							<!-- </div> -->
 						</div>
 						<Icon
 							name="copy-outline"
 							width="15"
-							class="cursor-pointer"
+							class="cursor-pointer outline-none"
 							on:click={() => copyPostToClipboard(post.post)}
 						/>
 					</div>
@@ -59,18 +73,18 @@
 					{/if}
 					{#if post.post.length > 300}
 						{#if !post.showFullText}
-							<p class="text-md whitespace-pre-wrap select-text">{post.post.slice(0, 300)}...</p>
-							<button on:click={() => (post.showFullText = true)} class="text-[#5E17EB]">
+							<p class="text-sm whitespace-pre-wrap select-text">{post.post.slice(0, 300)}...</p>
+							<button on:click={() => (post.showFullText = true)} class="text-[#5E17EB] text-sm">
 								Show full text
 							</button>
 						{:else}
-							<p class="text-md whitespace-pre-wrap select-text">{post.post}</p>
-							<button on:click={() => (post.showFullText = false)} class="text-[#5E17EB]">
+							<p class="text-sm whitespace-pre-wrap select-text">{post.post}</p>
+							<button on:click={() => (post.showFullText = false)} class="text-[#5E17EB] text-sm">
 								Show less
 							</button>
 						{/if}
 					{:else}
-						<p class="text-md whitespace-pre-wrap select-text">{post.post}</p>
+						<p class="text-sm whitespace-pre-wrap select-text">{post.post}</p>
 					{/if}
 				</div>
 			</div>
