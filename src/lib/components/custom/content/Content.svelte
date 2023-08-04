@@ -49,7 +49,7 @@
 							src={post.author === 1
 								? 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
 								: ''}
-							alt="Picture of Author"
+							alt="Picture of Author {post.id}"
 							class="w-10 h-10 rounded-full"
 						/>
 						<div class="flex justify-between">
@@ -71,7 +71,7 @@
 				</div>
 				<div class="space-y-2">
 					{#if post.photo}
-						<img src={post.photo} alt="Post Photo" class="w-full h-1/2 my-2 rounded-xl" />
+						<img src={post.photo} alt="Post Photo {post.id}" class="w-full h-1/2 my-2 rounded-xl" />
 					{/if}
 					{#if post.post.length > 300}
 						{#if !post.showFullText}
