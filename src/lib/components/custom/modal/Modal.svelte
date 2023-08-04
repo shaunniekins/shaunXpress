@@ -83,7 +83,7 @@
 					class="w-10 h-10 rounded-full"
 				/>
 				<div class="flex flex-1 flex-col">
-					<form class="flex-grow">
+					<form class="flex-grow space-y-3">
 						<textarea
 							class={`w-full px-2 py-2 mt-1 text-sm resize-none cursor-pointer outline-none rounded-2xl ${
 								theme === 'dark' ? 'bg-[#242526] text-white' : 'bg-[#FFFFFF] text-black'
@@ -91,7 +91,7 @@
 							rows="3"
 							placeholder="Thinkin' of?"
 						/>
-						<div class="flex flex-wrap overflow-y-auto max-h-40">
+						<div class="flex flex-wrap overflow-y-auto max-h-56 space-y-6">
 							{#each chosenPictures as picture, index}
 								<div class="relative">
 									<img
@@ -101,8 +101,8 @@
 									/>
 									<Icon
 										name="close-circle"
-										width="16"
-										class="absolute top-0 left-0 cursor-pointer outline-none text-red-500"
+										width="20"
+										class="absolute top-2 right-2 cursor-pointer outline-none text-red-500"
 										on:click={() => removeImage(index)}
 									/>
 								</div>

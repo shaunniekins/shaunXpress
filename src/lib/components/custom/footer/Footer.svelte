@@ -14,6 +14,6 @@
 		<li>
 			<a href="https://shaunniel.vercel.app/" target="_blank">Portfolio</a>
 		</li>
-		<li>Contact</li>
+		<li><a href="/contact">Contact</a></li>
 	</ul>
 </div>

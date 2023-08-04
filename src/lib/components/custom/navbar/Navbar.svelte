@@ -43,7 +43,9 @@
 		}`}
 	>
 		<div />
-		<h1 class="text-[#5E17EB] font-bold">ShaunXpress</h1>
+		<a href="/home">
+			<h1 class="text-[#5E17EB] font-bold">ShaunXpress</h1>
+		</a>
 
 		<div class="cursor-pointer" on:click={() => toggleTheme()}>
 			{#if theme === 'light'}
